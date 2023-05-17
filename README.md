@@ -1,2 +1,2 @@
-# Daijishou-Plugin-SDK
-Daijishou Plugin SDK written in Node.js.
+# Daijishou-Extension-SDK
+Daijishou Extension SDK written in Node.js.
