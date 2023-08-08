@@ -10,5 +10,11 @@
     "Daijishou"
   ],
   "author": "TapiocaFox",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "appium-adb": "^9.14.4"
+  },
+  "bin": {
+    "daiext": "bin/index.js"
+  }
 }
