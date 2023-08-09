@@ -8,6 +8,19 @@ const readline = require('readline').createInterface({
   
 const PORT = 19487;
 
+function DaijjisouDebugProtocol(adb) {
+    this._tcpClient = new net.Socket();
+}
+
+DaijjisouDebugProtocol.prototype.operations = {
+    fileOperation: {
+        headerByteCode: 0x02
+    },
+    consoleOperation: {
+        headerByteCode: 0x01
+    },
+}
+
 
 async function run() {
     const adb = await ADB.createADB();

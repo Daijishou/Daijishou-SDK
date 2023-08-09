@@ -1,2 +1,2 @@
-# Daijishou-Extension-SDK
-Daijishou Extension SDK written in Node.js.
+# Daijishou-SDK
+Daijishou SDK for Extensions, DSESS and more written in Node.js.

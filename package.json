@@ -1,7 +1,7 @@
 {
-  "name": "daijishou-extension-sdk",
+  "name": "daijishou-sdk",
   "version": "1.0.0",
-  "description": "Daijishou Extension SDK written in Node.js.",
+  "description": "Daijishou SDK written in Node.js.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,6 +15,6 @@
     "appium-adb": "^9.14.4"
   },
   "bin": {
-    "daiext": "bin/index.js"
+    "daisdk": "bin/index.js"
   }
 }
