@@ -1,36 +1,16 @@
 'use strict';
 const ADB = require('appium-adb').ADB;
-const net = require('net');
+const DaijishouDebugClient = require('./lib/daijishou_debug_client');
 const readline = require('readline').createInterface({
     input: process.stdin,
     output: process.stdout
   });
   
-const PORT = 19487;
-
-function DaijjisouDebugProtocol(adb) {
-    this._tcpClient = new net.Socket();
-}
-
-DaijjisouDebugProtocol.prototype.operations = {
-    fileOperation: {
-        headerByteCode: 0x02
-    },
-    consoleOperation: {
-        headerByteCode: 0x01
-    },
-}
 
 
 async function run() {
     const adb = await ADB.createADB();
 
-    async function close() {
-        console.log('Removing forwards.');
-        await adb.removePortForward(PORT)
-        console.log('Forwards remain:');
-        console.log(await adb.getForwardList());
-    }
     
     let devices = await adb.getConnectedDevices();
     if(devices.length>1) {
@@ -42,28 +22,19 @@ async function run() {
         adb.setDevice(devices[index])
     }
     readline.close()
-    console.log('Forwarding...');
-    await adb.forwardPort(PORT, PORT);
+    
     // await adb.reversePort(PORT, PORT);
     console.log(await adb.getForwardList());
 
-    
+    const daijishouDebugClient = new DaijishouDebugClient(adb);
 
-    const client = new net.Socket();
-    client.connect(PORT, '127.0.0.1', function() {
-        console.log('Connected.');
-        client.write('Hello, server! Love, Client.\n');
+    daijishouDebugClient.heartbeat((err) => {
+        console.log("heartbeat 1");
+        console.log(err);
     });
-    client.on('data', function(data) {
-        console.log('Received: ' + data);
-        client.destroy(); // kill client after server's response
+    daijishouDebugClient.heartbeat(() => {
+        console.log("heartbeat 2");
+        console.log(err);
     });
-    
-    client.on('close', function() {
-        console.log('Connection closed.');
-        close();
-    });
-
-
 }
 run()
