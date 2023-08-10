@@ -49,7 +49,7 @@ if (mainOptions.command === 'console') {
         })
     })
 }
-else if (mainOptions.command === 'console_cli') {
+else if (mainOptions.command === 'cli') {
     getADB().then((adb) => {
         const daijishouDebugClient = new DaijishouDebugClient(adb);
         const readline = require('readline').createInterface({
