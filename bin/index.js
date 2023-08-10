@@ -60,7 +60,11 @@ else if (mainOptions.command === 'console_cli') {
         const nextCommand = () => {
             readline.question(" > ", (command) => {
                 // console.log(command);
-                daijishouDebugClient.console(command, (err, result) => {
+                if(command=="exit") {
+                    readline.close()
+                    daijishouDebugClient.disconnect()
+                }
+                else daijishouDebugClient.console(command, (err, result) => {
                     if(err) {
                         console.log(err)
                         nextCommand();
