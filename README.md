@@ -1,6 +1,11 @@
 # Daijishou-SDK
 Daijishou SDK for Extensions, DSESS and more written in Node.js.
 
+## Console cli
+To start type below in your terminal.
+``` sh
+npx daisdk console_cli 
+```
 # Daijishou URIs
 ## daijishou-ext
 ## daijishou-file

@@ -29,12 +29,28 @@ async function run() {
     const daijishouDebugClient = new DaijishouDebugClient(adb);
 
     daijishouDebugClient.heartbeat((err) => {
+        console.log(err);
         console.log("heartbeat 1");
-        console.log(err);
     });
-    daijishouDebugClient.heartbeat(() => {
-        console.log("heartbeat 2");
+    daijishouDebugClient.heartbeat((err) => {
         console.log(err);
+        console.log("heartbeat 2");
+    });
+
+    daijishouDebugClient.console("\\drive list all", (err, result) => {
+        console.log(err);
+        console.log(result);
+        
+    });
+
+    daijishouDebugClient.console("\\echo 123", (err, result) => {
+        console.log(err);
+        console.log(result);
+    });
+
+    daijishouDebugClient.console("\\echo 123", (err, result) => {
+        console.log(err);
+        console.log(result);
     });
 }
 run()

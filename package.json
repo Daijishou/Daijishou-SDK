@@ -12,7 +12,8 @@
   "author": "TapiocaFox",
   "license": "MIT",
   "dependencies": {
-    "appium-adb": "^9.14.4"
+    "appium-adb": "^9.14.4",
+    "command-line-args": "^5.2.1"
   },
   "bin": {
     "daisdk": "bin/index.js"
