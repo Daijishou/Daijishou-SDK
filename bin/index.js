@@ -64,6 +64,18 @@ else if (mainOptions.command === 'cli') {
                     readline.close()
                     daijishouDebugClient.disconnect()
                 }
+                else if (command.startsWith('\\files list files ')) {
+
+                }
+                else if (command.startsWith('\\files delete ')) {
+
+                }
+                else if (command.startsWith('\\files push ')) {
+
+                }
+                else if (command.startsWith('\\files pull ')) {
+
+                }
                 else daijishouDebugClient.console(command, (err, result) => {
                     if(err) {
                         console.log(err)
