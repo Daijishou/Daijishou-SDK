@@ -65,7 +65,16 @@ else if (mainOptions.command === 'cli') {
                     daijishouDebugClient.disconnect()
                 }
                 else if (command.startsWith('\\files list files ')) {
-
+                    const uriString = command.replace('\\files list files ', '')
+                    daijishouDebugClient.listFiles(uriString, (err, result) => {
+                        if(err) {
+                            console.log(err)
+                            nextCommand();
+                            return
+                        }
+                        console.log(result)
+                        nextCommand();
+                    });
                 }
                 else if (command.startsWith('\\files delete ')) {
 
