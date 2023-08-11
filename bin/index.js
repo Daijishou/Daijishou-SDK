@@ -64,25 +64,33 @@ else if (mainOptions.command === 'cli') {
                     readline.close()
                     daijishouDebugClient.disconnect()
                 }
-                else if (command.startsWith('\\files list files ')) {
-                    const uriString = command.replace('\\files list files ', '')
+                // \files list files daijishou-file://files
+                else if (command.startsWith('\\fileop list ')) {
+                    const uriString = command.replace('\\fileop list ', '')
                     daijishouDebugClient.listFiles(uriString, (err, result) => {
                         if(err) {
                             console.log(err)
                             nextCommand();
                             return
                         }
-                        console.log(result)
+                        console.log(``)
+                        console.log(`List files of "${uriString}" returned with status code: ${result.statusCode}.`)
+                        if(result.statusCode == daijishouDebugClient.FILES_SUB_OPERATION_SUCCEED_RESULT_STATUS_BYTE_CODE) result.files.forEach((file) => {
+                            const line = (file.isDirectory?"  ":"d ")+String(file.size/1024n).padStart(8,' ')+ 'KB ' + file.name // +' '+file.path
+                            console.log(line)
+                        });
+                        console.log(``)
+                        // console.log(result)
                         nextCommand();
                     });
                 }
-                else if (command.startsWith('\\files delete ')) {
+                else if (command.startsWith('\\fileop delete ')) {
 
                 }
-                else if (command.startsWith('\\files push ')) {
+                else if (command.startsWith('\\fileop push ')) {
 
                 }
-                else if (command.startsWith('\\files pull ')) {
+                else if (command.startsWith('\\fileop pull ')) {
 
                 }
                 else daijishouDebugClient.console(command, (err, result) => {
