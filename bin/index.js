@@ -5,7 +5,6 @@ const commandLineArgs = require('command-line-args')
 const ADB = require('appium-adb').ADB;
 const DaijishouDebugClient = require('../lib/daijishou_debug_client');
 
-  
 const mainDefinitions = [
     { name: 'command', defaultOption: true }
   ]
@@ -76,7 +75,7 @@ else if (mainOptions.command === 'cli') {
                         console.log(``)
                         console.log(`List files of "${uriString}" returned with status code: ${result.statusCode}.`)
                         if(result.statusCode == daijishouDebugClient.FILES_SUB_OPERATION_SUCCEED_RESULT_STATUS_BYTE_CODE) result.files.forEach((file) => {
-                            const line = (file.isDirectory?"  ":"d ")+String(file.size/1024n).padStart(8,' ')+ 'KB ' + file.name // +' '+file.path
+                            const line = (file.isDirectory?"d ":"  ")+String(file.size/1024n).padStart(8,' ')+ 'KB ' + file.name // +' '+file.path
                             console.log(line)
                         });
                         console.log(``)
@@ -85,10 +84,35 @@ else if (mainOptions.command === 'cli') {
                     });
                 }
                 else if (command.startsWith('\\fileop delete ')) {
-
+                    const uriString = command.replace('\\fileop delete ', '')
+                    daijishouDebugClient.deleteFile(uriString, (err, result) => {
+                        if(err) {
+                            console.log(err)
+                            nextCommand();
+                            return
+                        }
+                        console.log(``)
+                        console.log(`Delete file "${uriString}" returned with status code: ${result.statusCode}.`)
+                        console.log(``)
+                        // console.log(result)
+                        nextCommand();
+                    });
                 }
+                // \fileop push ./lib daijishou-file://files/
+                // \fileop push ./node_modules daijishou-file://files/
                 else if (command.startsWith('\\fileop push ')) {
+                    const pathAndUriString = command.replace('\\fileop push ', '')
+                    const pathAndUri = pathAndUriString.split(' ')
+                    const localPath = pathAndUri[0]
+                    const RemoteUriString = pathAndUri[1]
 
+                    const path = require('path');
+                    daijishouDebugClient.listFilesRecursively(localPath, (err, files) => {
+                        files.forEach(file => {
+                            console.log(path.relative(localPath, file));
+                        });
+                        nextCommand();
+                    });
                 }
                 else if (command.startsWith('\\fileop pull ')) {
 
@@ -100,7 +124,7 @@ else if (mainOptions.command === 'cli') {
                         return
                     }
                     console.log(``)
-                    console.log(`Command "${command}" returned with status code: ${result.statusCode}.\n\n${result.message}`)
+                    console.log(`Command "${command}" returned with status code: ${result.statusCode}.\n${result.message}`)
                     console.log(``)
                     nextCommand();
                 })
