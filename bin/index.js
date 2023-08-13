@@ -98,19 +98,25 @@ else if (mainOptions.command === 'cli') {
                         nextCommand();
                     });
                 }
-                // \fileop push ./lib daijishou-file://files/
-                // \fileop push ./node_modules daijishou-file://files/
+                // \fileop push ./lib daijishou-file://cache/push_test
+                // \fileop push ./index.js daijishou-file://cache/push_test
                 else if (command.startsWith('\\fileop push ')) {
                     const pathAndUriString = command.replace('\\fileop push ', '')
                     const pathAndUri = pathAndUriString.split(' ')
                     const localPath = pathAndUri[0]
                     const RemoteUriString = pathAndUri[1]
 
-                    const path = require('path');
-                    daijishouDebugClient.listFilesRecursively(localPath, (err, files) => {
-                        files.forEach(file => {
-                            console.log(path.relative(localPath, file));
-                        });
+                    // const path = require('path');
+                    daijishouDebugClient.pushFile(localPath, RemoteUriString, (err, result) => {
+                        if(err) {
+                            console.log(err)
+                            nextCommand();
+                            return
+                        }
+                        console.log(``)
+                        console.log(`Push file "${localPath}" to "${RemoteUriString}" returned with status code: ${result.statusCode}.`)
+                        console.log(``)
+                        // console.log(result)
                         nextCommand();
                     });
                 }
