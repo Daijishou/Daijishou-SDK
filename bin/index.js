@@ -57,7 +57,7 @@ else if (mainOptions.command === 'cli') {
         });
         daijishouDebugClient.connect();
         const nextCommand = () => {
-            readline.question(" > ", (command) => {
+            readline.question("dai console > ", (command) => {
                 // console.log(command);
                 if(command=="exit") {
                     readline.close()
@@ -99,6 +99,8 @@ else if (mainOptions.command === 'cli') {
                     });
                 }
                 // \fileop push ./lib daijishou-file://cache/push_test
+                // \fileop push ./test_files/manager_runtime daijishou-file://extension_manager
+                // \extensions js_file daijishou-file://extension_manager/index.js
                 // \fileop push ./index.js daijishou-file://cache/push_test
                 else if (command.startsWith('\\fileop push ')) {
                     const pathAndUriString = command.replace('\\fileop push ', '')
