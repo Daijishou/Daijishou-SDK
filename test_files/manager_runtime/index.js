@@ -3,9 +3,10 @@
 // \fileop list daijishou-file://extension_manager/
 import {test} from "./modules/module1.js"
 
-test("before")
+// test("before")
 // throw new Error("123")
 // test(fs)
-test("after")
+// test("after")
+var a = 1
 
 // export default 123
