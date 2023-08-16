@@ -108,7 +108,6 @@ else if (mainOptions.command === 'cli') {
                     const localPath = pathAndUri[0]
                     const RemoteUriString = pathAndUri[1]
 
-                    // const path = require('path');
                     daijishouDebugClient.pushFile(localPath, RemoteUriString, (err, result) => {
                         if(err) {
                             console.log(err)
@@ -116,14 +115,29 @@ else if (mainOptions.command === 'cli') {
                             return
                         }
                         console.log(``)
-                        console.log(`Push file "${localPath}" to "${RemoteUriString}" returned with status code: ${result.statusCode}.`)
+                        console.log(`Push file from "${localPath}" to "${RemoteUriString}" returned with status code: ${result.statusCode}.`)
                         console.log(``)
-                        // console.log(result)
                         nextCommand();
                     });
                 }
+                // \fileop pull daijishou-file://extension_manager ./test_files/pull/manager_runtime
                 else if (command.startsWith('\\fileop pull ')) {
-
+                    const pathAndUriString = command.replace('\\fileop pull ', '')
+                    const pathAndUri = pathAndUriString.split(' ')
+                    const RemoteUriString = pathAndUri[0]
+                    const localPath = pathAndUri[1]
+                    
+                    daijishouDebugClient.pullFile(RemoteUriString, localPath, (err, result) => {
+                        if(err) {
+                            console.log(err)
+                            nextCommand();
+                            return
+                        }
+                        console.log(``)
+                        console.log(`Pull file from "${RemoteUriString}" to "${localPath}" returned with status code: ${result.statusCode}.`)
+                        console.log(``)
+                        nextCommand();
+                    });
                 }
                 else daijishouDebugClient.console(command, (err, result) => {
                     if(err) {
