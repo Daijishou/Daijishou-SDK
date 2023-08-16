@@ -21,6 +21,7 @@ Permission | Notes
 `retro_achievements` | Daijishou Retro Achievements APIs.
 `files` | Direct file access.
 `internet` | APIs that related to internet.
+`notification` | Ability to toast messages.
 `export_modules` | Expose and export V8 JavaScript modules.
 
 ## APIs
@@ -28,8 +29,6 @@ Permission | Notes
 Object | Type | isProxy | References | Required permissions | Notes
 -- | -- | -- | -- | -- | --
 **Common (Extension & V8)** |  |  |  |  |  | 
-`application` | Object | ✔️ | [Android Application](https://developer.android.com/reference/android/app/Application) | `all` | Daijishou Application Object. This object is for debug, and internal uses.
-`daijishouUUID` | String | ❌ | -- | `identification` | Daijishou UUID of the device.
 `lifecycleOwner` | Object | ✔️ | [Android lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) | -- | Lifecycle object when [observation (LiveData)](https://developer.android.com/topic/libraries/architecture/livedata) is needed.
 `lifecycleOwner.observeLiveData`| Function | ✔️ | [Android lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle), [Example](./examples/common.md#lifecycleownerobservelivedata) | -- | This is a function polyfill by Daijishou. 
 **File (Extension & V8)** |  |  |  |  |  | 
@@ -37,11 +36,16 @@ Object | Type | isProxy | References | Required permissions | Notes
 `Files` | Object | ✔️ | [Java Files](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html) | `files` | --
 `Path` | Class | ✔️ | [Java Path](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html) | `files` | --
 `Paths` | Object | ✔️ | [Java Paths](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Paths.htmll) | `files` | --
-**Database/Repository<br>(Extension & V8)** |  |  |  |  |  | 
+**Database (Extension & V8)** |  |  |  |  |  | 
 `daijishouLibraryRepository` | Object | ✔️ | [Documentation]() | `library` | --
 `retroAchievementsRepository` | Object | ✔️ | [Documentation]() | `retro_achievements` | --
-**Other  (Extension & V8)** |  |  |  |  | | 
+**Internet  (Extension & V8)** |  |  |  |  |  | 
 `Jsoup` | Object | ✔️ | [Jsoup](https://jsoup.org/) | `internet` | --
 `dsess` | Object | ✔️ | [Documentation]() | `internet` | --
 `scraper` | Object | ✔️ | [Documentation]() | `internet` | --
+**Daijishou  (Extension & V8)** |  |  |  |  |  | 
+`application` | Object | ✔️ | [Android application](https://developer.android.com/reference/android/app/Application) | `all` | Daijishou Application Object. This object is for debug, and internal uses.
+`daijishouUUID` | String | ❌ | -- | `identification` | Daijishou UUID of the device.
+`daijishouVersionCode` | Int | ❌ | -- | -- | Daijishou's version.
+`daijishouVersionName` | String | ❌ | -- | -- | Daijishou's version.
 -- | -- | -- | -- | -- | -- | --
