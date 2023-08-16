@@ -37,7 +37,7 @@ Object | Type | isProxy | References | Required permissions | Notes
 `Files` | Object | ✔️ | [Java Files](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html) | `files` | --
 `Path` | Class | ✔️ | [Java Path](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html) | `files` | --
 `Paths` | Object | ✔️ | [Java Paths](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Paths.htmll) | `files` | --
-**Database/Repository  (Extension & V8)** |  |  |  |  |  | 
+**Database/Repository<br>(Extension & V8)** |  |  |  |  |  | 
 `daijishouLibraryRepository` | Object | ✔️ | [Documentation]() | `library` | --
 `retroAchievementsRepository` | Object | ✔️ | [Documentation]() | `retro_achievements` | --
 **Other  (Extension & V8)** |  |  |  |  | | 
