@@ -14,7 +14,15 @@ platforms.forEach(platform => {
     platformNames.push(platform.name);
 })
 console.log(platformNames);
-console.log(lifecycle.currentState);
+console.log(lifecycleOwner);
+// console.log(lifecycleScope);
+console.log(daijishouLibraryRepository.getLatestEventStatically());
 
+lifecycleOwner.observeLiveData(daijishouLibraryRepository.getLatestEvent(), (event) => {
+    console.log(event);
+})
+// daijishouLibraryRepository.getLatestEvent().observe(lifecycleOwner, (event) => {
+//     console.log(event);
+// })
 // export default 123
 
