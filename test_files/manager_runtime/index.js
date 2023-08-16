@@ -8,5 +8,13 @@ import {test} from "./modules/module1.js"
 // test(fs)
 // test("after")
 var a = 1
+const platforms = application.daijishouLibraryRepository.getAllPlatformsStatically()
+const platformNames = []
+platforms.forEach(platform => {
+    platformNames.push(platform.name);
+})
+console.log(platformNames);
+console.log(lifecycle.currentState);
 
 // export default 123
+
