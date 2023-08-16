@@ -121,6 +121,7 @@ else if (mainOptions.command === 'cli') {
                     });
                 }
                 // \fileop pull daijishou-file://extension_manager ./test_files/pull/manager_runtime
+                // \fileop pull daijishou-file://extension_manager/index.js ./test_files/pull/manager_runtime
                 else if (command.startsWith('\\fileop pull ')) {
                     const pathAndUriString = command.replace('\\fileop pull ', '')
                     const pathAndUri = pathAndUriString.split(' ')
@@ -135,6 +136,19 @@ else if (mainOptions.command === 'cli') {
                         }
                         console.log(``)
                         console.log(`Pull file from "${RemoteUriString}" to "${localPath}" returned with status code: ${result.statusCode}.`)
+                        console.log(``)
+                        nextCommand();
+                    });
+                }
+                else if (command.startsWith('\\install_ext ')) {
+                    daijishouDebugClient.installExtension(pathToExtension, (err, result) => {
+                        if(err) {
+                            console.log(err)
+                            nextCommand();
+                            return
+                        }
+                        console.log(``)
+                        console.log(`Install extension from path "${pathToExtension}" succeed.`)
                         console.log(``)
                         nextCommand();
                     });
