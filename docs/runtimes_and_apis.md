@@ -21,7 +21,7 @@ Permission | Notes
 `retro_achievements` | Daijishou Retro Achievements APIs.
 `files` | Direct file access.
 `internet` | APIs that related to internet.
-`notification` | Ability to toast messages.
+`interaction` | Ability to toast messages and show dialogs.
 `export_modules` | Expose and export V8 JavaScript modules.
 
 ## APIs
@@ -30,19 +30,27 @@ Object | Type | isProxy | References | Required permissions | Notes
 -- | -- | -- | -- | -- | --
 **Common (Extension & V8)** |  |  |  |  |  | 
 `lifecycleOwner` | Object | ✔️ | [Android lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) | -- | Lifecycle object when [observation (LiveData)](https://developer.android.com/topic/libraries/architecture/livedata) is needed.
-`lifecycleOwner.observeLiveData`| Function | ✔️ | [Android lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle), [Example](./examples/common.md#lifecycleownerobservelivedata) | -- | This is a function polyfill by Daijishou. 
+`lifecycleOwner.observeLiveData`| Function | ✔️ | [Android lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle), [Detail](./apis_details.md#lifecycleownerobservelivedata) | -- | This is a function polyfilled by Daijishou. 
+`daijishouUriHandler`| Object | ✔️ | [Android lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) | -- | See document for more details.
 **File (Extension & V8)** |  |  |  |  |  | 
 `File` | Class | ✔️ | [Java File](https://docs.oracle.com/javase/8/docs/api/java/io/File.html) | `files` | --
 `Files` | Object | ✔️ | [Java Files](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html) | `files` | --
 `Path` | Class | ✔️ | [Java Path](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html) | `files` | --
 `Paths` | Object | ✔️ | [Java Paths](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Paths.htmll) | `files` | --
 **Database (Extension & V8)** |  |  |  |  |  | 
-`daijishouLibraryRepository` | Object | ✔️ | [Documentation]() | `library` | --
-`retroAchievementsRepository` | Object | ✔️ | [Documentation]() | `retro_achievements` | --
+`daijishouLibraryRepository` | Object | ✔️ | [Documentation]() | `library` | See document for more details.
+`retroAchievementsRepository` | Object | ✔️ | [Documentation]() | `retro_achievements` | See document for more details.
+`syncLibrary` | Function | ✔️ | -- | `library` | Sync and backup library.
+`backupLibrary` | Function | ✔️ | -- | `library` | Only backup library.
 **Internet  (Extension & V8)** |  |  |  |  |  | 
 `Jsoup` | Object | ✔️ | [Jsoup](https://jsoup.org/) | `internet` | --
-`dsess` | Object | ✔️ | [Documentation]() | `internet` | --
-`scraper` | Object | ✔️ | [Documentation]() | `internet` | --
+`dsess` | Object | ✔️ | [Detail](), [Syntax](https://github.com/TapiocaFox/Daijishou/blob/main/docs/dsess.md) | `internet` | --
+`scraper` | Object | ✔️ | [Detail]() | `internet` | --
+**Interaction  (Extension & V8)** |  |  |  |  |  | 
+`toast` | Function | ✔️ | [Detail](./apis_details.md#toast) | `interaction` | --
+`showPlayableItemPickerDialog` | Function | ✔️ | [Detail]() | `interaction` | Pop up a dialog to ask for a playableItem.
+`showAcknowledgementDialog` | Function | ✔️ | [Detail]() | `interaction` | Pop up a yes-or-no dialog. With message.
+`showRetroAchievementsGameDialogByGameid` | Function | ✔️ | [Detail]() | `interaction` | Pop up a [RetroAchievements](https://retroachievements.org) dialog by gamd id.
 **Daijishou  (Extension & V8)** |  |  |  |  |  | 
 `application` | Object | ✔️ | [Android application](https://developer.android.com/reference/android/app/Application) | `all` | Daijishou Application Object. This object is for debug, and internal uses.
 `daijishouUUID` | String | ❌ | -- | `identification` | Daijishou UUID of the device.
