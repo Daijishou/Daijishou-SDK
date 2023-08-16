@@ -14,15 +14,15 @@ WebView | WebView on Android | WebView | No API access, except basic communicati
 ## Permissions
 Permission | Notes
 -- | --
-`all` | Very dangerous, please be responsible.
-`debug` | Very dangerous, please be responsible.
-`identification` | Get identification info of Daijishou.
-`library` | Daijishou library that manage items and media.
-`retro_achievements` | Daijishou Retro Achievements APIs.
-`files` | Direct file access.
-`internet` | APIs that related to internet.
-`interaction` | Ability to toast messages and show dialogs.
-`export_modules` | Expose and export V8 JavaScript modules.
+`all` | This wil enable every permissions. Very dangerous, please be responsible.
+`debug` | Enable debug features. Very dangerous, please be responsible.
+`identification` | Allow the extension to get identification info of Daijishou.
+`library` | Allow access to Daijishou library that manage items and media.
+`retro_achievements` | Enable daijishou Retro Achievements APIs.
+`files` | Enable direct file access.
+`internet` | Enable APIs that related to internet.
+`interactions` | Enable ability to toast messages and show dialogs.
+`export_modules` | Allow the extension to expose and export V8 JavaScript modules.
 
 ## APIs
 ### Global Objects
@@ -47,13 +47,17 @@ Object | Type | isProxy | References | Required permissions | Notes
 `dsess` | Object | ✔️ | [Detail](), [Syntax](https://github.com/TapiocaFox/Daijishou/blob/main/docs/dsess.md) | `internet` | --
 `scraper` | Object | ✔️ | [Detail]() | `internet` | --
 **Interaction  (Extension & V8)** |  |  |  |  |  | 
-`toast` | Function | ✔️ | [Detail](./apis_details.md#toast) | `interaction` | --
-`showPlayableItemPickerDialog` | Function | ✔️ | [Detail]() | `interaction` | Pop up a dialog to ask for a playableItem.
-`showAcknowledgementDialog` | Function | ✔️ | [Detail]() | `interaction` | Pop up a yes-or-no dialog. With message.
-`showRetroAchievementsGameDialogByGameid` | Function | ✔️ | [Detail]() | `interaction` | Pop up a [RetroAchievements](https://retroachievements.org) dialog by gamd id.
+`toast` | Function | ✔️ | [Detail](./apis_details.md#toast) | `interactions` | --
+`showPlayableItemPickerDialog` | Function | ✔️ | [Detail]() | `interactions` | Pop up a dialog to ask for a playableItem.
+`showAcknowledgementDialog` | Function | ✔️ | [Detail]() | `interactions` | Pop up a yes-or-no dialog. With message.
+`showRetroAchievementsGameDialogByGameid` | Function | ✔️ | [Detail]() | `interactions` | Pop up a [RetroAchievements](https://retroachievements.org) dialog by gamd id.
 **Daijishou  (Extension & V8)** |  |  |  |  |  | 
 `application` | Object | ✔️ | [Android application](https://developer.android.com/reference/android/app/Application) | `all` | Daijishou Application Object. This object is for debug, and internal uses.
 `daijishouUUID` | String | ❌ | -- | `identification` | Daijishou UUID of the device.
 `daijishouVersionCode` | Int | ❌ | -- | -- | Daijishou's version.
 `daijishouVersionName` | String | ❌ | -- | -- | Daijishou's version.
+**Implementation  (Only Extension)** |  |  |  |  |  | 
+`proposeImplementation` | Function | ✔️ | -- | -- | -- | --
+`ScraperImplementation` | Class | ✔️ | -- | ? | -- | --
+`LibraryWebViewImplementation` | Class | ✔️ | -- | ? | -- | --
 -- | -- | -- | -- | -- | -- | --
