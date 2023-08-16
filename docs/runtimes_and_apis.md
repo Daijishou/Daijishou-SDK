@@ -32,15 +32,15 @@ Object | Type / isProxy | References | Required permissions | Environments | Not
 `daijishouUUID` | String / false | -- | `identification` | Extension & V8 | Daijishou UUID of the device.
 `lifecycleOwner` | Object / true | [Android lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) | -- | Extension & V8 | Lifecycle object when [observation (LiveData)](https://developer.android.com/topic/libraries/architecture/livedata) is needed.
 `lifecycleOwner.observeLiveData`| Function / true | [Android lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle), [Example](./examples/common.md#lifecycleownerobservelivedata) | -- | Extension & V8 | This is a function polyfill by Daijishou. 
-**Files** |  |  |  |  | 
+**File** |  |  |  |  | 
 `File` | Class / true | [Java File](https://docs.oracle.com/javase/8/docs/api/java/io/File.html) | `files` | Extension & V8 | --
 `Files` | Object / true | [Java Files](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html) | `files` | Extension & V8 | --
 `Path` | Class / true | [Java Path](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html) | `files` | Extension & V8 | --
 `Paths` | Object / true | [Java Paths](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Paths.htmll) | `files` | Extension & V8 | --
-**Databases/Repositories** |  |  |  |  | 
+**Database/Repository** |  |  |  |  | 
 `daijishouLibraryRepository` | Object / true | [Documentation]() | `library` | Extension & V8 | --
 `retroAchievementsRepository` | Object / true | [Documentation]() | `retro_achievements` | Extension & V8 | --
-**Others** |  |  |  |  | 
+**Other** |  |  |  |  | 
 `Jsoup` | Object / true | [Jsoup](https://jsoup.org/) | `internet` | Extension & V8 | --
 `dsess` | Object / true | [Documentation]() | `internet` | Extension & V8 | --
 `scraper` | Object / true | [Documentation]() | `internet` | Extension & V8 | --
