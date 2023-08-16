@@ -25,23 +25,23 @@ Permission | Notes
 
 ## APIs
 ### Global Objects
-Object | Type | isProxy | References | Required permissions | Environments | Notes
--- | -- | -- | -- | -- | -- | --
-**Common** |  |  |  |  |  | 
-`application` | Object | ✔️ | [Android Application](https://developer.android.com/reference/android/app/Application) | `all` | Extension & V8 | Daijishou Application Object. This object is for debug, and internal uses.
-`daijishouUUID` | String | ❌ | -- | `identification` | Extension & V8 | Daijishou UUID of the device.
-`lifecycleOwner` | Object | ✔️ | [Android lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) | -- | Extension & V8 | Lifecycle object when [observation (LiveData)](https://developer.android.com/topic/libraries/architecture/livedata) is needed.
-`lifecycleOwner.observeLiveData`| Function | ✔️ | [Android lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle), [Example](./examples/common.md#lifecycleownerobservelivedata) | -- | Extension & V8 | This is a function polyfill by Daijishou. 
-**File** |  |  |  |  |  | 
-`File` | Class | ✔️ | [Java File](https://docs.oracle.com/javase/8/docs/api/java/io/File.html) | `files` | Extension & V8 | --
-`Files` | Object | ✔️ | [Java Files](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html) | `files` | Extension & V8 | --
-`Path` | Class | ✔️ | [Java Path](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html) | `files` | Extension & V8 | --
-`Paths` | Object | ✔️ | [Java Paths](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Paths.htmll) | `files` | Extension & V8 | --
-**Database/Repository** |  |  |  |  |  | 
-`daijishouLibraryRepository` | Object | ✔️ | [Documentation]() | `library` | Extension & V8 | --
-`retroAchievementsRepository` | Object | ✔️ | [Documentation]() | `retro_achievements` | Extension & V8 | --
-**Other** |  |  |  |  | | 
-`Jsoup` | Object | ✔️ | [Jsoup](https://jsoup.org/) | `internet` | Extension & V8 | --
-`dsess` | Object | ✔️ | [Documentation]() | `internet` | Extension & V8 | --
-`scraper` | Object | ✔️ | [Documentation]() | `internet` | Extension & V8 | --
+Object | Type | isProxy | References | Required permissions | Notes
+-- | -- | -- | -- | -- | --
+**Common (Extension & V8)** |  |  |  |  |  | 
+`application` | Object | ✔️ | [Android Application](https://developer.android.com/reference/android/app/Application) | `all` | Daijishou Application Object. This object is for debug, and internal uses.
+`daijishouUUID` | String | ❌ | -- | `identification` | Daijishou UUID of the device.
+`lifecycleOwner` | Object | ✔️ | [Android lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) | -- | Lifecycle object when [observation (LiveData)](https://developer.android.com/topic/libraries/architecture/livedata) is needed.
+`lifecycleOwner.observeLiveData`| Function | ✔️ | [Android lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle), [Example](./examples/common.md#lifecycleownerobservelivedata) | -- | This is a function polyfill by Daijishou. 
+**File (Extension & V8)** |  |  |  |  |  | 
+`File` | Class | ✔️ | [Java File](https://docs.oracle.com/javase/8/docs/api/java/io/File.html) | `files` | --
+`Files` | Object | ✔️ | [Java Files](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html) | `files` | --
+`Path` | Class | ✔️ | [Java Path](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html) | `files` | --
+`Paths` | Object | ✔️ | [Java Paths](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Paths.htmll) | `files` | --
+**Database/Repository  (Extension & V8)** |  |  |  |  |  | 
+`daijishouLibraryRepository` | Object | ✔️ | [Documentation]() | `library` | --
+`retroAchievementsRepository` | Object | ✔️ | [Documentation]() | `retro_achievements` | --
+**Other  (Extension & V8)** |  |  |  |  | | 
+`Jsoup` | Object | ✔️ | [Jsoup](https://jsoup.org/) | `internet` | --
+`dsess` | Object | ✔️ | [Documentation]() | `internet` | --
+`scraper` | Object | ✔️ | [Documentation]() | `internet` | --
 -- | -- | -- | -- | -- | -- | --
