@@ -16,6 +16,7 @@ Permission | Notes
 -- | --
 `all` | Very dangerous, please be responsible.
 `debug` | Very dangerous, please be responsible.
+`identification` | Get identification info of Daijishou.
 `library` | Daijishou library that manage items and media.
 `retro_achievements` | Daijishou Retro Achievements APIs.
 `files` | Direct file access.
@@ -24,22 +25,23 @@ Permission | Notes
 
 ## APIs
 ### Global Objects
-Object | Is JVM proxy | Reference | Required permission | Environment | Notes
+Object | Type / isProxy | References | Required permissions | Environments | Notes
 -- | -- | -- | -- | -- | --
 **Common** |  |  |  |  | 
-`application` | true | [Android Application](https://developer.android.com/reference/android/app/Application) | `all` | Extension & V8 | Daijishou Application Object. This object is for debug, and internal uses.
-`lifecycleOwner` | true | [Android lifecycle](https://developer.android.com/reference/androidx/lifecycle/package-summary) | -- | Extension & V8 | Lifecycle object when [observation (LiveData)](https://developer.android.com/topic/libraries/architecture/livedata) is needed.
-`lifecycleOwner.observeLiveData`| true | [Android lifecycle](https://developer.android.com/reference/androidx/lifecycle/package-summary), [Example](./examples/common.md#lifecycleownerobservelivedata) | -- | Extension & V8 | This is a function polyfill by Daijishou. 
+`application` | Object / true | [Android Application](https://developer.android.com/reference/android/app/Application) | `all` | Extension & V8 | Daijishou Application Object. This object is for debug, and internal uses.
+`daijishouUUID` | String / false | -- | `identification` | Extension & V8 | Daijishou UUID of the device.
+`lifecycleOwner` | Object / true | [Android lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) | -- | Extension & V8 | Lifecycle object when [observation (LiveData)](https://developer.android.com/topic/libraries/architecture/livedata) is needed.
+`lifecycleOwner.observeLiveData`| Function / true | [Android lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle), [Example](./examples/common.md#lifecycleownerobservelivedata) | -- | Extension & V8 | This is a function polyfill by Daijishou. 
 **Files** |  |  |  |  | 
-`File` | true | [Java File](https://docs.oracle.com/javase/8/docs/api/java/io/File.html) | `files` | Extension & V8 | --
-`Files` | true | [Java Files](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html) | `files` | Extension & V8 | --
-`Path` | true | [Java Path](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html) | `files` | Extension & V8 | --
-`Paths` | true | [Java Paths](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Paths.htmll) | `files` | Extension & V8 | --
-**Repositories** |  |  |  |  | 
-`daijishouLibraryRepository` | true | [Documentation]() | `library` | Extension & V8 | --
-`retroAchievementsRepository` | true | [Documentation]() | `retro_achievements` | Extension & V8 | --
-**Other** |  |  |  |  | 
-`Jsoup` | true | [Jsoup](https://jsoup.org/) | `internet` | Extension & V8 | --
-`dsess` | true | [Documentation]() | `internet` | Extension & V8 | --
-`scraper` | true | [Documentation]() | `internet`, `debug` | Extension & V8 | --
+`File` | Class / true | [Java File](https://docs.oracle.com/javase/8/docs/api/java/io/File.html) | `files` | Extension & V8 | --
+`Files` | Object / true | [Java Files](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html) | `files` | Extension & V8 | --
+`Path` | Class / true | [Java Path](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html) | `files` | Extension & V8 | --
+`Paths` | Object / true | [Java Paths](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Paths.htmll) | `files` | Extension & V8 | --
+**Databases/Repositories** |  |  |  |  | 
+`daijishouLibraryRepository` | Object / true | [Documentation]() | `library` | Extension & V8 | --
+`retroAchievementsRepository` | Object / true | [Documentation]() | `retro_achievements` | Extension & V8 | --
+**Others** |  |  |  |  | 
+`Jsoup` | Object / true | [Jsoup](https://jsoup.org/) | `internet` | Extension & V8 | --
+`dsess` | Object / true | [Documentation]() | `internet` | Extension & V8 | --
+`scraper` | Object / true | [Documentation]() | `internet` | Extension & V8 | --
 -- | -- | -- | -- | -- | --
