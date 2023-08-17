@@ -1,7 +1,7 @@
 # Daijishou JavaScript Runtimes and APIs
 
 ## Environments
-Daijishou uses Javet library to enable JavaScript features. Javet provides [V8](https://v8.dev/#:~:text=V8%20is%20Google's%20open%20source,%2C%20ARM%2C%20or%20MIPS%20processors.) environment, it implements [ECMAScript](https://tc39.es/ecma262/) and WebAssembly. 
+Daijishou uses [Javet library](https://github.com/caoccao/Javet) to enable JavaScript features. Javet provides [V8](https://v8.dev/#:~:text=V8%20is%20Google's%20open%20source,%2C%20ARM%2C%20or%20MIPS%20processors.) environment, it implements [ECMAScript](https://tc39.es/ecma262/) and WebAssembly. 
 
 Therefore, Daijishou V8 Runtime, which is built upon those technologies, is a superset of V8 includes additional APIs and permission controls. Which means that, in general cases, Daijishou V8 Runtime inherits the ECMAScript language features.
 
@@ -32,6 +32,9 @@ Object | Type | isProxy | References | Required permissions | Notes
 `lifecycleOwner` | Object | ✔️ | [Android lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) | -- | Lifecycle object when [observation (LiveData)](https://developer.android.com/topic/libraries/architecture/livedata) is needed.
 `lifecycleOwner.observeLiveData`| Function | ✔️ | [Android lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle), [Detail](./apis_details.md#lifecycleownerobservelivedata) | -- | This is a function polyfilled by Daijishou. 
 `daijishouUriHandler`| Object | ✔️ | [Android lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) | -- | See document for more details.
+`filesDirectory`| String | ✔️ | -- | -- | Directory path for Javascript Runtime to store dynamic files.
+`cacheDirectory`| String | ✔️ | -- | -- | Directory path for Javascript Runtime to store cache files. Those files can be cleaned by Daijishou when necessary.
+`createSQLiteOpenHelper`| Function | ✔️ | [Android SQLite3](https://developer.android.com/training/data-storage/sqlite), [Android SQLiteOpenHelper](https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper), [Detail]() | -- | --
 **File (Extension & V8)** |  |  |  |  |  | 
 `File` | Class | ✔️ | [Java File](https://docs.oracle.com/javase/8/docs/api/java/io/File.html) | `files` | --
 `Files` | Object | ✔️ | [Java Files](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html) | `files` | --
@@ -43,7 +46,11 @@ Object | Type | isProxy | References | Required permissions | Notes
 `syncLibrary` | Function | ✔️ | -- | `library` | Sync and backup library.
 `backupLibrary` | Function | ✔️ | -- | `library` | Only backup library.
 **Internet  (Extension & V8)** |  |  |  |  |  | 
-`Jsoup` | Object | ✔️ | [Jsoup](https://jsoup.org/) | `internet` | --
+`URI` | Class | ✔️ | [Java URI](https://docs.oracle.com/javase/8/docs/api/java/net/URI.html) | `internet` | --
+`URL` | Class | ✔️ | [Java URL](https://docs.oracle.com/javase/8/docs/api/java/net/URL.html), [Java Http Request](https://www.baeldung.com/java-http-request) | `internet` | --
+`URLConnection` | Class | ✔️ | [Java URLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/URLConnection.html) | `internet` | --
+`HttpURLConnection` | Class | ✔️ | [Java HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) | `internet` | --
+`jsoup` | Object | ✔️ | [Jsoup](https://jsoup.org/) | `internet` | --
 `dsess` | Object | ✔️ | [Detail](), [Syntax](https://github.com/TapiocaFox/Daijishou/blob/main/docs/dsess.md) | `internet` | --
 `scraper` | Object | ✔️ | [Detail]() | `internet` | --
 **Interaction  (Extension & V8)** |  |  |  |  |  | 

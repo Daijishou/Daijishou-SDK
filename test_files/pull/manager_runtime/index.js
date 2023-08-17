@@ -1,6 +1,6 @@
 // \fileop push ./test_files/manager_runtime daijishou-file://extension_manager
-// \extensions js_file daijishou-file://extension_manager/index.js
-// \fileop list daijishou-file://extension_manager/
+// \extensions js_file daijishou-file://extension_manager/source/index.js
+// \fileop list daijishou-file://extension_manager/source
 import {test} from "./modules/module1.js"
 
 // test("before")
