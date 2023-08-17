@@ -71,7 +71,7 @@ val showPlayableItemChooserDialog = { callback: (PlayableItemEntity?) -> Unit ->
 ### Snippet
 ``` js
 showAcknowledgementDialog("Are you sure?", "The action will cause bla bla bla...", (boolean) => {
-    console.log(boolean)
+    console.log(`Acknowledged: ${boolean}`)
 })
 ```
 ### Anatomy 
@@ -97,6 +97,7 @@ val showAcknowledgementDialog = { title: String, message: String, callback: (Boo
 ## `showRetroAchievementsGameDialogByGameId`
 ### Snippet
 ``` js
+// https://retroachievements.org/game/20562
 showRetroAchievementsGameDialogByGameId(20562, (isShown) => {
     console.log(`Is the dialog shown: ${isShown}`)
 })
