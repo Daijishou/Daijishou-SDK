@@ -48,9 +48,9 @@ Object | Type | isProxy | References | Required permissions | Notes
 `scraper` | Object | ✔️ | [Detail]() | `internet` | --
 **Interaction  (Extension & V8)** |  |  |  |  |  | 
 `toast` | Function | ✔️ | [Detail](./apis_details.md#toast) | `interactions` | --
-`showPlayableItemPickerDialog` | Function | ✔️ | [Detail]() | `interactions` | Pop up a dialog to ask for a playableItem.
-`showAcknowledgementDialog` | Function | ✔️ | [Detail]() | `interactions` | Pop up a yes-or-no dialog. With message.
-`showRetroAchievementsGameDialogByGameid` | Function | ✔️ | [Detail]() | `interactions` | Pop up a [RetroAchievements](https://retroachievements.org) dialog by gamd id.
+`showPlayableItemChooserDialog` | Function | ✔️ | [Detail](./apis_details.md#showplayableitemchooserdialog) | `interactions` | Pop up a dialog to ask for a playableItem.
+`showAcknowledgementDialog` | Function | ✔️ | [Detail](./apis_details.md#showacknowledgementdialog) | `interactions` | Pop up a yes-or-no dialog. With message.
+`showRetroAchievementsGameDialogByGameId` | Function | ✔️ | [Detail](./apis_details.md#showretroachievementsgamedialogbygameid) | `interactions` | Pop up a [RetroAchievements](https://retroachievements.org) dialog by gamd id.
 **Daijishou  (Extension & V8)** |  |  |  |  |  | 
 `application` | Object | ✔️ | [Android application](https://developer.android.com/reference/android/app/Application) | `all` | Daijishou Application Object. This object is for debug, and internal uses.
 `daijishouUUID` | String | ❌ | -- | `identification` | Daijishou UUID of the device.
