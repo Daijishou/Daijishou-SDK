@@ -172,3 +172,7 @@ else if (mainOptions.command === 'cli') {
 else {
     console.log('Unknown command.')
 }
+
+// \js showRetroAchievementsGameDialogByGameId(20562, (isShown) => {})
+// \js showPlayableItemChooserDialog((playableItem) => { console.log(playableItem.name)})
+// \js showAcknowledgementDialog("Are you sure?", "The action will cause bla bla bla...", (boolean) => {console.log(`Acknowledged: ${boolean}`)})
