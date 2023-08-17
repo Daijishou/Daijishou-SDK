@@ -16,7 +16,7 @@ Permission | Notes
 -- | --
 `all` | This wil enable every permissions. Very dangerous, please be responsible.
 `debug` | Enable debug features. Very dangerous, please be responsible.
-`identification` | Allow the extension to get identification info of Daijishou.
+`system` | Allow the extension to get system and identification info of Daijishou.
 `library` | Allow access to Daijishou library that manage items and media.
 `retro_achievements` | Enable daijishou Retro Achievements APIs.
 `files` | Enable direct file access.
@@ -32,10 +32,13 @@ Object | Type | isProxy | References | Required permissions | Notes
 `lifecycleOwner` | Object | ✔️ | [Android lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) | -- | Lifecycle object when [observation (LiveData)](https://developer.android.com/topic/libraries/architecture/livedata) is needed.
 `lifecycleOwner.observeLiveData`| Function | ✔️ | [Android lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle), [Detail](./apis_details.md#lifecycleownerobservelivedata) | -- | This is a function polyfilled by Daijishou. 
 `daijishouUriHandler`| Object | ✔️ | [Android lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) | -- | See document for more details.
-`filesDirectory`| String | ✔️ | -- | -- | Directory path for Javascript Runtime to store dynamic files.
-`cacheDirectory`| String | ✔️ | -- | -- | Directory path for Javascript Runtime to store cache files. Those files can be cleaned by Daijishou when necessary.
+`localStorage`| Object | ✔️ | [W3School](https://www.w3schools.com/jsref/prop_win_localstorage.asp), [HTML Standard](https://html.spec.whatwg.org/multipage/webstorage.html#the-localstorage-attribute) | -- | Local storage object implemented by Daijishou.
 `createSQLiteOpenHelper`| Function | ✔️ | [Android SQLite3](https://developer.android.com/training/data-storage/sqlite), [Android SQLiteOpenHelper](https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper), [Detail]() | -- | --
+`getJavaClassMethods`| Function | ❌ | -- | `debug` | Get Java object's class methods in string list.
+`getJavaClassFields`| Function | ❌ | -- | `debug` | Get Java object's class fields in string list.
 **File (Extension & V8)** |  |  |  |  |  | 
+`filesDirectory`| String | ❌ | -- | `files` | Directory path for Javascript Runtime to store dynamic files.
+`cacheDirectory`| String | ❌ | -- | `files` | Directory path for Javascript Runtime to store cache files. Those files can be cleaned by Daijishou when necessary.
 `File` | Class | ✔️ | [Java File](https://docs.oracle.com/javase/8/docs/api/java/io/File.html) | `files` | --
 `Files` | Object | ✔️ | [Java Files](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html) | `files` | --
 `Path` | Class | ✔️ | [Java Path](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html) | `files` | --
@@ -60,11 +63,24 @@ Object | Type | isProxy | References | Required permissions | Notes
 `showRetroAchievementsGameDialogByGameId` | Function | ✔️ | [Detail](./apis_details.md#showretroachievementsgamedialogbygameid) | `interactions` | Pop up a [RetroAchievements](https://retroachievements.org) dialog by gamd id.
 **Daijishou  (Extension & V8)** |  |  |  |  |  | 
 `application` | Object | ✔️ | [Android application](https://developer.android.com/reference/android/app/Application) | `all` | Daijishou Application Object. This object is for debug, and internal uses.
-`daijishouUUID` | String | ❌ | -- | `identification` | Daijishou UUID of the device.
+`daijishouUUID` | String | ❌ | -- | `system` | Daijishou UUID of the device.
+`getDaijishouUptime` | Function | ❌ | -- | `system` | Daijishou UUID of the device.
 `daijishouVersionCode` | Int | ❌ | -- | -- | Daijishou's version.
 `daijishouVersionName` | String | ❌ | -- | -- | Daijishou's version.
+**Me (Only Extension)** |  |  |  |  |  | 
+`me.id` | String | ❌ | -- | -- | -- | --
+`me.name` | String | ❌ | -- | -- | -- | --
+`me.description` | String | ❌ | -- | -- | -- | --
+`me.authors` | String | ❌ | -- | -- | -- | --
+`me.version` | String | ❌ | -- | -- | -- | --
+`me.apiLevel` | String | ❌ | -- | -- | -- | --
+`me.permissions` | String List | ❌ | -- | -- | -- | --
+`me.getUptime` | Function | ✔️ | -- | -- | -- | --
 **Implementation  (Only Extension)** |  |  |  |  |  | 
 `proposeImplementation` | Function | ✔️ | -- | -- | -- | --
 `ScraperImplementation` | Class | ✔️ | -- | ? | -- | --
 `LibraryWebViewImplementation` | Class | ✔️ | -- | ? | -- | --
--- | -- | -- | -- | -- | -- | --
+**Extension's Resource (Only Extension)** |  |  |  |  |  | 
+`getString` | Function | ✔️ | -- | -- | Localisation. 
+**Other (Only Extension)** |  |  |  |  |  | 
+-- | -- | -- | -- | -- | -- 

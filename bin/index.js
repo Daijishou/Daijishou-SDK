@@ -57,7 +57,7 @@ else if (mainOptions.command === 'cli') {
         });
         daijishouDebugClient.connect();
         const nextCommand = () => {
-            readline.question("dai console > ", (command) => {
+            readline.question("💻 dai console > ", (command) => {
                 // console.log(command);
                 if(command=="exit") {
                     readline.close()
