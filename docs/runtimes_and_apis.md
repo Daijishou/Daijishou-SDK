@@ -29,11 +29,11 @@ Permission | Notes
 Object | Type | isProxy | References | Required permissions | Notes
 -- | -- | -- | -- | -- | --
 **Common (Extension & V8)** |  |  |  |  |  | 
-`lifecycleOwner` | Object | ✔️ | [Android lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) | -- | Lifecycle object when [observation (LiveData)](https://developer.android.com/topic/libraries/architecture/livedata) is needed.
-`lifecycleOwner.observeLiveData`| Function | ✔️ | [Android lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle), [Detail](./apis_details.md#lifecycleownerobservelivedata) | -- | This is a function polyfilled by Daijishou. 
+`lifecycleOwner` | Object | ✔️ | [Android lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) | -- | --
+`lifecycleOwner.observeLiveData`| Function | ✔️ | [Android lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle), [Detail](./apis_details.md#lifecycleownerobservelivedata) | -- | This is a function when [observation of LiveData](https://developer.android.com/topic/libraries/architecture/livedata) is needed.
 `daijishouUriHandler`| Object | ✔️ | [Android lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) | -- | See document for more details.
-`localStorage`| Object | ✔️ | [W3School](https://www.w3schools.com/jsref/prop_win_localstorage.asp), [HTML Standard](https://html.spec.whatwg.org/multipage/webstorage.html#the-localstorage-attribute) | -- | Local storage object implemented by Daijishou.
-`createSQLiteOpenHelper`| Function | ✔️ | [Android SQLite3](https://developer.android.com/training/data-storage/sqlite), [Android SQLiteOpenHelper](https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper), [Detail]() | -- | --
+`localStorage`| Object | ✔️ | [W3School](https://www.w3schools.com/jsref/prop_win_localstorage.asp), [HTML Standard](https://html.spec.whatwg.org/multipage/webstorage.html#the-localstorage-attribute) | -- | Simple solution for storing data. Html `localStorage` object implemented by Daijishou.
+`createSQLiteOpenHelper`| Function | ✔️ | [Android SQLite3](https://developer.android.com/training/data-storage/sqlite), [Android SQLiteOpenHelper](https://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper), [Detail]() | -- | Complicated yet more thorough solution for storing data.
 `getJavaClassMethods`| Function | ❌ | -- | `debug` | Get Java object's class methods in string list.
 `getJavaClassFields`| Function | ❌ | -- | `debug` | Get Java object's class fields in string list.
 **File (Extension & V8)** |  |  |  |  |  | 
