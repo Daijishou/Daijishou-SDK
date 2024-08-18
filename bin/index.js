@@ -63,7 +63,7 @@ else if (mainOptions.command === 'cli') {
                     readline.close()
                     daijishouDebugClient.disconnect()
                 }
-                // \files list files daijishou-file://files
+                // \filesop list files daijishou-file://files/
                 else if (command.startsWith('\\fileop list ')) {
                     const uriString = command.replace('\\fileop list ', '')
                     daijishouDebugClient.listFiles(uriString, (err, result) => {
@@ -127,7 +127,13 @@ else if (mainOptions.command === 'cli') {
                     const pathAndUri = pathAndUriString.split(' ')
                     const RemoteUriString = pathAndUri[0]
                     const localPath = pathAndUri[1]
-                    
+                    if(!localPath) {
+                        console.log(``)
+                        console.log(`Please specify local path.`)
+                        console.log(``)
+                        nextCommand();
+                        return
+                    }
                     daijishouDebugClient.pullFile(RemoteUriString, localPath, (err, result) => {
                         if(err) {
                             console.log(err)

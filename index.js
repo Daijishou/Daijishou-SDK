@@ -40,7 +40,6 @@ async function run() {
     daijishouDebugClient.console("\\drive list all", (err, result) => {
         console.log(err);
         console.log(result);
-        
     });
 
     daijishouDebugClient.console("\\echo 123", (err, result) => {
