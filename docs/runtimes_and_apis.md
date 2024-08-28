@@ -40,7 +40,7 @@ Object | Type | isProxy | References | Required permissions | Notes
 `installedDirectory`| String | ❌ | -- | `files` | Get directory path where the extension is installed.
 `dataDirectory`| String | ❌ | -- | `files` | Directory path for Javascript Runtime to store data.
 `cacheDirectory`| String | ❌ | -- | `files` | Directory path for Javascript Runtime to store cache files. Those files can be cleaned by Daijishou when necessary.
-`tempDirectory`| String | ❌ | -- | `files` | Directory path for temporary files. Cleaned up every startup. Unlike cache this for one time use scenario.
+`tempDirectory`| String | ❌ | -- | `files` | Directory path for temporary files. Cleaned up on every startup. Unlike cache directory, this for one time use scenario.
 `File` | Class | ✔️ | [Java File](https://docs.oracle.com/javase/8/docs/api/java/io/File.html) | `files` | --
 `Files` | Object | ✔️ | [Java Files](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html) | `files` | --
 `Path` | Class | ✔️ | [Java Path](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html) | `files` | --
