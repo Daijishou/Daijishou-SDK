@@ -37,7 +37,8 @@ Object | Type | isProxy | References | Required permissions | Notes
 `getJavaClassMethods`| Function | ❌ | -- | `debug` | Get Java object's class methods in string list.
 `getJavaClassFields`| Function | ❌ | -- | `debug` | Get Java object's class fields in string list.
 **File (Extension & V8)** |  |  |  |  |  | 
-`filesDirectory`| String | ❌ | -- | `files` | Directory path for Javascript Runtime to store dynamic files.
+`installedDirectory`| String | ❌ | -- | `files` | Get directory path where the extension is installed.
+`dataDirectory`| String | ❌ | -- | `files` | Directory path for Javascript Runtime to store data.
 `cacheDirectory`| String | ❌ | -- | `files` | Directory path for Javascript Runtime to store cache files. Those files can be cleaned by Daijishou when necessary.
 `File` | Class | ✔️ | [Java File](https://docs.oracle.com/javase/8/docs/api/java/io/File.html) | `files` | --
 `Files` | Object | ✔️ | [Java Files](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html) | `files` | --
