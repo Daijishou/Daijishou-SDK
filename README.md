@@ -18,6 +18,6 @@ npx daisdk cli
 ```
 
 ## Documentaions
- - [Daijishou SDK Console](./docs/sdk_console.md) (Unique command for Daijishou SDK)
+ - [Daijishou SDK Console](./docs/sdk_console.md) (Unique commands for Daijishou SDK)
  - [Daijishou URIs](./docs/daijishou_uris.md)
  - [Daijishou JavaScript Runtimes and APIs](./docs/runtimes_and_apis.md)
