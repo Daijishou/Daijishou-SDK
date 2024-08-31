@@ -11,12 +11,13 @@ You can install Andriod [SDK Platform Tools](https://developer.android.com/tools
 export ANDROID_HOME=~/Library/Android/sdk/
 ```
 
-### 3. CLI for Console and File operations
+### 3. CLI for Console
 To start type below in your terminal.
 ``` sh
 npx daisdk cli 
 ```
 
 ## Documentaions
+ - [Daijishou SDK Conosle Commnads](./docs/console_commands.md)
  - [Daijishou URIs](./docs/daijishou_uris.md)
  - [Daijishou JavaScript Runtimes and APIs](./docs/runtimes_and_apis.md)
