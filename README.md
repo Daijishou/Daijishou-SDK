@@ -3,10 +3,10 @@ Daijishou SDK for Extensions, DSESS and more written in Node.js.
 
 ## Getting Started
 ### 1. Install Android SDK
-You can install Andriod Platform Tools (Recommend). Or Android Studio fully.
+You can install Andriod [SDK Platform Tools](https://developer.android.com/tools/releases/platform-tools) (Recommend). Or Android Studio fully.
 
 ### 2. Set up environment
-`ANDROID_HOME` or `ANDROID_SDK_ROOT`. For example I am on macos. Using Android Studio:
+`ANDROID_HOME` or `ANDROID_SDK_ROOT`. Using Android Studio on macOS, my command is:
 ``` sh
 export ANDROID_HOME=~/Library/Android/sdk/
 ```
