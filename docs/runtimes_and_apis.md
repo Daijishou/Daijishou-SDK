@@ -29,6 +29,7 @@ Permission | Notes
 Object | Type | isProxy | References | Required permissions | Notes
 -- | -- | -- | -- | -- | --
 **Common (Extension & V8)** |  |  |  |  |  | 
+`locale` | String | ❌ | -- | -- | For example `en-US`, `zh-TW`.
 `lifecycleOwner` | Object | ✔️ | [Android lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) | -- | --
 `lifecycleOwner.observeLiveData`| Function | ✔️ | [Android lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle), [Detail](./apis_details.md#lifecycleownerobservelivedata) | -- | This is a function when [observation of LiveData](https://developer.android.com/topic/libraries/architecture/livedata) is needed.
 `daijishouUriHandler`| Object | ✔️ | [Android lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) | -- | See document for more details.
