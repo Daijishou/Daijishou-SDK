@@ -1,6 +1,12 @@
 # Daijishou-SDK
 Daijishou SDK for Extensions, DSESS and more written in Node.js.
 
+## Installation
+
+Get up-to-date version from Github. Or simply:
+
+`npm i @daijishou/daijishou-sdk`
+
 ## Getting Started
 ### 1. Install Android SDK
 You can install Andriod [SDK Platform Tools](https://developer.android.com/tools/releases/platform-tools) (Recommend). Or Android Studio fully.
