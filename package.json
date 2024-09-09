@@ -3,8 +3,13 @@
   "version": "0.0.1",
   "description": "Daijishou SDK written in Node.js.",
   "main": "index.js",
+  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Daijishou/Daijishou-SDK.git"
   },
   "keywords": [
     "Daijishou"
