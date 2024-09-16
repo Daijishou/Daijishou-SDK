@@ -1,6 +1,6 @@
 {
   "name": "@daijishou/daijishou-sdk",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Daijishou SDK written in Node.js.",
   "main": "index.js",
   
