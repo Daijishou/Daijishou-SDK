@@ -10,6 +10,6 @@
 
 `daijishou-file://files/`
 
-`daijishou-file://extension/{extension_id}/data/`
+`daijishou-file://extension/data/{extension_id}/`
 
-`daijishou-file://extension/{extension_id}/installed/`
+`daijishou-file://extension/installed/{extension_id}/`
